@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 정의된 decorator 파일들이 있는 기본 디렉토리를 설정 -->
+<decorators defaultdir="/WEB-INF/views/cmm/template">
+
+<!-- controller를 호출하는 url 값이 정의된 패턴에 해당한다면 decorator를 사용하지 않음 -->
+	<excludes>
+		<pattern>**/ajax*</pattern>
+		<pattern>**/file/*</pattern>
+		<pattern>**/filedown/*</pattern>
+		<pattern>**/resources/*</pattern>
+		<pattern>/resources/*</pattern>
+	</excludes>
+
+	<decorator name="default" page="default/template.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+
+    <decorator name="default_" page="default_/template.jsp">
+        <pattern>/test/*</pattern>
+    </decorator>
+
+
+	<decorator name="main" page="main/template.jsp">
+		<pattern>/main/main*</pattern>
+	</decorator>
+
+	<decorator name="pop" page="pop/template.jsp">
+        <pattern>**/pop*</pattern>
+    </decorator>
+
+<!-- 패턴이 없는 decorator이다. -->
+<!-- sitemesh.xml 에서 정의한 mapper로 사용가능하다. -->
+	<decorator name="blank" page="blank/template.jsp"/>
+
+	<decorator name="null" />
+
+</decorators>

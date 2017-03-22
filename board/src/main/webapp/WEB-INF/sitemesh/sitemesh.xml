@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sitemesh>
+	<property name="decorators" value="/WEB-INF/sitemesh/decorators.xml"/>
+	<excludes file="${decorators}"/>
+	
+    <page-parsers>
+        <parser default="true" class="com.opensymphony.module.sitemesh.parser.FastPageParser"/>
+        <parser content-type="text/html" class="com.opensymphony.module.sitemesh.parser.FastPageParser"/>
+        <parser content-type="text/html;charset=UTF-8" class="com.opensymphony.module.sitemesh.parser.FastPageParser"/>
+    </page-parsers>
+
+<!--  meta 태그를 사용하여 decorator을 선택할 수 있다. -->
+<!-- PageDecoratorMapper는 <meta>태그에 decorator 항목이 있을 때 장식자를 리턴한다. 예를 들어 현재 layout.jsp 라는 장식자가 default 로 결정되어 있지만 -->
+<!--  popup이라는 이름의 장식자를 특정 페이지에 적용하고 싶다면 <meta name="decorator" content="popup"></meta> 라고 작성 -->
+    <decorator-mappers>
+        <mapper class="com.opensymphony.module.sitemesh.mapper.PageDecoratorMapper">
+		    <param name="property.1" value="meta.decorator" />
+		    <param name="property.2" value="decorator" />
+		</mapper>
+		
+<!-- 		decorators.xml 에 정의된 decorator를 사용한다. -->
+        <mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
+            <param name="config" value="/WEB-INF/sitemesh/decorators.xml"/> 
+        </mapper>
+    </decorator-mappers>
+    
+</sitemesh>
