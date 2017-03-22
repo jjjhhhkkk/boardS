@@ -31,7 +31,7 @@ public class Board1Controller {
 		modelMap.addAttribute("searchVO",	searchVO);
 		return "board1/boardList";
 	}
-	//꺄아아
+	//꺄아아33
 
 	
 	//ModelAttribute는 사용자가 입력한 내용들의 이름과 지정된 클래스(boardVO)의 변수명이 일치하면 자동으로 그 내용을 담아서 반환해 준다.
