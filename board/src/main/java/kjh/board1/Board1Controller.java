@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kjh.common.FileUtil;
+import kjh.common.FileVO;
 import kjh.common.SearchVO;
 
 
@@ -36,24 +38,39 @@ public class Board1Controller {
 	
 	//ModelAttribute는 사용자가 입력한 내용들의 이름과 지정된 클래스(boardVO)의 변수명이 일치하면 자동으로 그 내용을 담아서 반환해 준다.
 	@RequestMapping(value ="/board1Save")
-	public String boardSave(@ModelAttribute BoardInput boardInfo){
-		if (boardInfo.getBrdno()==null  || "".equals(boardInfo.getBrdno())   ){
-			boardSvc.insertBoard(boardInfo);
-		}
-		else{ 
-			boardSvc.updateBoard(boardInfo);
-		}
+	public String boardSave(HttpServletRequest request, BoardInput boardInfo){
+		
+		String[] fileno=request.getParameterValues("fileno");
+		
+		FileUtil fs = new FileUtil();
+		List<FileVO> filelist = fs.saveAllFiles(boardInfo.getUploadfile());
+		
+//		if (boardInfo.getBrdno()==null  || "".equals(boardInfo.getBrdno())   ){
+//			boardSvc.insertBoard(boardInfo);
+//		}
+//		else{ 
+//			boardSvc.updateBoard(boardInfo);
+//		}
+		
+		boardSvc.insertBoard(boardInfo,filelist,fileno);
+		
+		
+		
 		return "redirect:/board1List";
 	}
 	
 	//글읅기 오버라이딩인듯
 	@RequestMapping(value ="/board1Read")
-	public String boardSave(HttpServletRequest request, ModelMap modelMap){
+	public String boardSave(HttpServletRequest request, ModelMap modelMap) throws Exception{
 		String brdno = request.getParameter("brdno");
 		
 		boardSvc.updateBoard1Read(brdno);
 		BoardInput boardInfo = boardSvc.selectBoardOne(brdno);
+		List<?> listview=boardSvc.selectBoard4FileList(brdno);
+		
+		
 		modelMap.addAttribute("boardInfo",boardInfo);
+		modelMap.addAttribute("listview",listview);
 		
 		return "board1/boardRead";
 		
@@ -80,12 +97,14 @@ public class Board1Controller {
 	
 	//글쓰기와 수정 합침
 	@RequestMapping(value = "/board1Form")
-	public String boardForm(HttpServletRequest request, ModelMap modelMap){
+	public String boardForm(HttpServletRequest request, ModelMap modelMap) throws Exception{
 		String brdno = request.getParameter("brdno");
     	if (brdno!=null) {
     		BoardInput boardInfo = boardSvc.selectBoardOne(brdno);
+    		List<BoardInput> listview = boardSvc.selectBoard4FileList(brdno);
         
     		modelMap.addAttribute("boardInfo", boardInfo);
+    		modelMap.addAttribute("listview",listview);
     	}
     	
 		return "board1/boardForm";

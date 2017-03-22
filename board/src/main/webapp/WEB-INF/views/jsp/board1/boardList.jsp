@@ -166,7 +166,9 @@
 												<th>등록자</th>
 												<th>등록일</th>
 												<th>조회수</th>
+												<th>첨부파일</th>
 												<th>삭제</th>
+												
 											</tr>
 										</thead>
 										<tbody>
@@ -193,6 +195,7 @@
 													<%-- 													<td><c:out value="${listview.brddate}" /></td> --%>
 													<%-- 													<td><c:out value="${listview.brdhit}" /></td> --%>
 													<td>${listview.brdhit}</td>
+													<td>${listview.filecnt }</td>
 													<td><input type="button" value="삭제"
 														onclick="location.href='board1Delete?brdno=${listview.brdno}'"></td>
 												</tr>

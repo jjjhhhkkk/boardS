@@ -58,7 +58,7 @@
 
 		<div id="page-wrapper">
 		
-	<form id="form1" name="form1" action="board1Save" method="post">
+	<form id="form1" name="form1" action="board1Save" method="post" enctype="multipart/form-data">
 	
 		<table class="table table-striped table-bordered table-hover">
 			<tbody>
@@ -76,6 +76,17 @@
 				<tr>
 					<td>내용</td>
 					<td><textarea id="brdmemo" name="brdmemo" rows="5" cols="60"><c:out value="${boardInfo.brdmemo}"/></textarea></td>
+				</tr>
+				
+				<tr>
+					<td>첨부파일></td>
+					  <c:forEach var="listview" items="${listview}" varStatus="status">
+                        <input type="checkbox" name="fileno" value="<c:out value="${listview.fileno}"/>">    
+                        <a href="fileDownload?filename=<c:out value="${listview.filename}"/>&downname=<c:out value="${listview.realname}"/>"> 
+                        <c:out value="${listview.filename}"/></a> <c:out value="${listview.size2String()}"/><br/>
+                    </c:forEach>  
+
+					  <input type="file" name="uploadfile" multiple="" />
 				</tr>
 			</tbody>
 		</table>
