@@ -7,8 +7,8 @@
 		SELECT BRDNO, BRDTITLE,
 		BRDWRITER, DATE_FORMAT(BRDDATE,'%Y-%m-%d')
 		BRDDATE , BRDHIT
-		   , (SELECT COUNT(*) FROM TBL_BOARDFILE WHERE BRDNO=TB.BRDNO) FILECN
-		FROM TBL_BOARD
+		   , (SELECT COUNT(*) FROM TBL_BOARDFILE WHERE BRDNO=TB.BRDNO) FILECNT
+		FROM TBL_BOARD TB
 		<include refid="includeBoard"/>
 		ORDER BY BRDNO DESC
 		LIMIT ${rowStart-1}, 10 
@@ -54,6 +54,19 @@
 		FROM TBL_BOARD
 		WHERE BRDNO=#{brdno}
 	</delete>
+	
+	 <delete id="deleteBoard4File" parameterType="hashmap"> 
+        DELETE 
+          FROM TBL_BOARDFILE
+         WHERE FILENO IN (
+			  <foreach item="item" index="index" collection="fileno" separator=",">
+		        	 ${item}
+			  </foreach>  
+		)	         
+    </delete> 
+    
+	
+	
 
 
 	<update id="updateBoard1Read" parameterType="String">

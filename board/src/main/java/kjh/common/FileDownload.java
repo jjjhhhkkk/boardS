@@ -22,7 +22,7 @@ public class FileDownload {
      */
     @RequestMapping(value = "fileDownload")
     public void fileDownload(HttpServletRequest request,HttpServletResponse response) {
-        String path = "d:\\workspace\\fileupload\\"; 
+        String path = "C:\\smartFish-project\\workspace3\\WebSpringTest\\file\\"; 
         
         String filename = request.getParameter("filename");
         String downname = request.getParameter("downname");
