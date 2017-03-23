@@ -66,9 +66,9 @@ public class Board1Service {
 		}      
 		
 	}
-	public void updateBoard(BoardInput param){
-		sqlSession.update("updateBoard1", param);
-	}
+//	public void updateBoard(BoardInput param){
+//		sqlSession.update("updateBoard1", param);
+//	}
 	public BoardInput selectBoardOne(String param){
 		return sqlSession.selectOne("selectBoard1One",param);
 	}

@@ -60,12 +60,12 @@ public class Board1Controller {
 	
 	//글읅기 오버라이딩인듯
 	@RequestMapping(value ="/board1Read")
-	public String boardSave(HttpServletRequest request, ModelMap modelMap) throws Exception{
+	public String boardRead(HttpServletRequest request, ModelMap modelMap) throws Exception{
 		String brdno = request.getParameter("brdno");
 		
 		boardSvc.updateBoard1Read(brdno);
 		BoardInput boardInfo = boardSvc.selectBoardOne(brdno);
-		List<?> listview=boardSvc.selectBoard4FileList(brdno);
+		List<BoardInput> listview=boardSvc.selectBoard4FileList(brdno);
 		
 		
 		modelMap.addAttribute("boardInfo",boardInfo);
