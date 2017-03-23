@@ -91,15 +91,18 @@
 								<c:forEach var="listview" items="${listview}" varStatus="status">
 									<input type="checkbox" name="fileno"
 										value="<c:out value="${listview.fileno}"/>">
+										
 									<a href="fileDownload?filename=<c:out value="${listview.filename}"/>
 									&downname=<c:out value="${listview.realname}"/>">
 										<c:out value="${listview.filename}" />
 									</a>
-									<c:out value="${listview.size2String()}" />
-									<br/>
-								</c:forEach> 
-										<input type="file" name="uploadfile" multiple="" />
 									
+									<c:out value="${listview.size2String()}" />
+									<br>
+									
+								</c:forEach> 
+										
+									<input type="file" name="uploadfile" multiple="" >
 							</td>
 								
 						</tr>
