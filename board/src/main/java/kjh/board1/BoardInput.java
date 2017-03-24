@@ -1,5 +1,9 @@
 package kjh.board1;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardInput {
 
 	private String brdno;
@@ -10,8 +14,23 @@ public class BoardInput {
 	private String brdhit;
 	private String brddeleteflag;
 	
+	public String getFilecnt() {
+		return filecnt;
+	}
+	public void setFilecnt(String filecnt) {
+		this.filecnt = filecnt;
+	}
+	private String filecnt;
+	private List<MultipartFile> uploadfile;
+	
 	public String getBrdno() {
 		return brdno;
+	}
+	public List<MultipartFile> getUploadfile() {
+		return uploadfile;
+	}
+	public void setUploadfile(List<MultipartFile> uploadfile) {
+		this.uploadfile = uploadfile;
 	}
 	public void setBrdno(String brdno) {
 		this.brdno = brdno;

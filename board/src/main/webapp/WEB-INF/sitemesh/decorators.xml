@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- 정의된 decorator 파일들이 있는 기본 디렉토리를 설정 -->
-<decorators defaultdir="/WEB-INF/views/cmm/template">
+<decorators defaultdir="/WEB-INF/views/jsp/cmm/template">
 
 <!-- controller를 호출하는 url 값이 정의된 패턴에 해당한다면 decorator를 사용하지 않음 -->
 	<excludes>

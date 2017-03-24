@@ -6,7 +6,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+	<classpathentry kind="src" path="src/main/resources/messages"/>
+	<classpathentry kind="src" path="src/main/resources/properties"/>
+	<classpathentry excluding="**|messages/" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>

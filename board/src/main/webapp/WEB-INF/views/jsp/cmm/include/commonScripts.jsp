@@ -20,7 +20,7 @@ $(document).ready(function(){
          }
 
 
-		alert("${resultMessage}");
+// 		alert("${resultMessage}");
 		$("#_alertFrm").messageLayer(options={title:"<spring:message code="경고"/>", message:"${resultMessage}"});
 	    $("#_alertFrm").messageLayer(options={title:"<spring:message code="경고"/>", message:"<mc:customBindErrors delimiter="<br/>" />"});
 	}else{

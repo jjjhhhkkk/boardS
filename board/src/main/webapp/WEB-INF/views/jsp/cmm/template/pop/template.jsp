@@ -6,7 +6,7 @@
 <%@ include file="/WEB-INF/views/jsp/cmm/include/meta.jsp"%>
 <title><spring:message code="홈페이지대표타이틀"/></title>
 <%@ include file="/WEB-INF/views/jsp/cmm/include/stylesheets.jsp"%>
-<%-- <link href="${pageContext.request.contextPath}/resources/css/popup.css" rel="stylesheet"/> --%>
+<link href="${pageContext.request.contextPath}/resources/css/popup.css" rel="stylesheet"/>
 
 <%@ include file="/WEB-INF/views/jsp/cmm/include/scripts.jsp"%>
 <%@ include file="/WEB-INF/views/jsp/cmm/include/commonScripts.jsp"%>

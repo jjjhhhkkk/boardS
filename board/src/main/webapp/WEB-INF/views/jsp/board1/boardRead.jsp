@@ -79,6 +79,17 @@
 				<td>내용</td>
 				<td><c:out value="${boardInfo.brdmemo}" /></td>
 			</tr>
+			
+			<tr>
+    			<td>첨부</td> 
+			    <td>
+			        <c:forEach var="listview" items="${listview}" varStatus="status">    
+			            <a href="fileDownload?filename=<c:out value="${listview.filename}"/>&downname=<c:out value="${listview.realname }"/>"> 
+			            <c:out value="${listview.filename}"/></a> <c:out value="${listview.size2String()}"/><br/>
+			        </c:forEach>                    
+			    </td> 
+			</tr>
+
 		</tbody>
 	</table>
 	<a href="#" onclick="history.back(-1)">돌아가기</a>

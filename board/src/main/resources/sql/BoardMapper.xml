@@ -7,18 +7,29 @@
 		SELECT BRDNO, BRDTITLE,
 		BRDWRITER, DATE_FORMAT(BRDDATE,'%Y-%m-%d')
 		BRDDATE , BRDHIT
-		FROM TBL_BOARD
+		   , (SELECT COUNT(*) FROM TBL_BOARDFILE WHERE BRDNO=TB.BRDNO) FILECNT
+		FROM TBL_BOARD TB
 		<include refid="includeBoard"/>
 		ORDER BY BRDNO DESC
 		LIMIT ${rowStart-1}, 10 
 	</select>
 
 	<insert id="insertBoard1" parameterType="kjh.board1.BoardInput">
+		<selectKey resultType="String" keyProperty="brdno" order="BEFORE">
+            SELECT IFNULL(MAX(BRDNO),0)+1 FROM TBL_BOARD
+       </selectKey>
+       
 		insert into
 		tbl_board(brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag)
 		values(#{brdtitle},	#{brdwriter},#{brdmemo},now(),0,'N')
 	</insert>
-
+	
+	<insert id="insertBoard1File" parameterType="kjh.common.FileVO">
+		insert into tbl_boardfile(brdno,filename,realname,filesize)
+		values(#{parentPK},#{filename},#{realname},#{filesize})
+	
+	</insert>
+	
 	<select id="selectBoard1One" parameterType="String"
 		resultType="kjh.board1.BoardInput">
 		select brdno, brdtitle, brdwriter, brdmemo,
@@ -43,6 +54,19 @@
 		FROM TBL_BOARD
 		WHERE BRDNO=#{brdno}
 	</delete>
+	
+	 <delete id="deleteBoard4File" parameterType="hashmap"> 
+        DELETE 
+          FROM TBL_BOARDFILE
+         WHERE FILENO IN (
+			  <foreach item="item" index="index" collection="fileno" separator=",">
+		        	 ${item}
+			  </foreach>  
+		)	         
+    </delete> 
+    
+	
+	
 
 
 	<update id="updateBoard1Read" parameterType="String">
@@ -57,6 +81,15 @@
           <include refid="includeBoard"/>
 
 </select>
+
+<select id="selectBoard4FileList" resultType="kjh.common.FileVO" parameterType="String">
+        SELECT FILENO, FILENAME, REALNAME, FILESIZE
+          FROM TBL_BOARDFILE
+         WHERE BRDNO=#{brdno}
+         ORDER BY FILENO DESC 
+    </select>
+
+
 
 <sql id="includeBoard">
     WHERE BRDDELETEFLAG='N'

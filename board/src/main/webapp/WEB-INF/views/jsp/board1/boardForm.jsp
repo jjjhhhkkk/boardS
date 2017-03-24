@@ -14,7 +14,9 @@
 <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <!-- MetisMenu CSS -->
 <link href="resources/bower_components/metisMenu/dist/metisMenu.min.css"
@@ -45,7 +47,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <%-- <script src="<c:url value='/js/co.js' />"></script> --%>
 <script src="js/co.js"></script>
 <!-- <mvc:resources mapping="/js/**" location="/js/" /> dispatcher-servlet에 이것을써서 -->
@@ -54,53 +57,75 @@
 
 </head>
 <body>
-<div id="wrapper">
+	<div id="wrapper">
 
 		<div id="page-wrapper">
-		
-	<form id="form1" name="form1" action="board1Save" method="post">
-	
-		<table class="table table-striped table-bordered table-hover">
-			<tbody>
-				<tr>
-					<td>작성자</td>
-					<td><input type="text" id= "brdwriter" name="brdwriter" size="20"
-						maxlength="20" value="<c:out value="${boardInfo.brdwriter}"/>" ></td>
-				</tr>
-				<tr>
-					<td>제목</td>
-					<td><input type="text" id="brdtitle" name="brdtitle" size="70"
-						maxlength="250" value="<c:out value="${boardInfo.brdtitle}"/>"></td>
-				</tr>
-				
-				<tr>
-					<td>내용</td>
-					<td><textarea id="brdmemo" name="brdmemo" rows="5" cols="60"><c:out value="${boardInfo.brdmemo}"/></textarea></td>
-				</tr>
-			</tbody>
-		</table>
-		<a href="#" class="btn" id=list>목록</a>
-		
-		<input type="hidden" name="brdno" value="<c:out value="${boardInfo.brdno}"/>"> 
-		
-		<a href="#this" onclick="fn_formSubmit()">저장</a>
-	</form>
-	<script>
-// 		$(function(){
-// 			$("#list").on('click',function(){
-// 				<a href="board1Form"></a>
-// 			});
-// 		});
-	$(function(){
-		$("#list").click(function(){
-			location.href = "/board/board1List";
-		});
-	});
-		
-		
-	</script>
-	
-	</div>
+
+			<form id="form1" name="form1" action="board1Save" method="post"
+				enctype="multipart/form-data">
+
+				<table class="table table-striped table-bordered table-hover">
+					<tbody>
+						<tr>
+							<td>작성자</td>
+							<td><input type="text" id="brdwriter" name="brdwriter"
+								size="20" maxlength="20"
+								value="<c:out value="${boardInfo.brdwriter}"/>"></td>
+						</tr>
+						<tr>
+							<td>제목</td>
+							<td><input type="text" id="brdtitle" name="brdtitle"
+								size="70" maxlength="250"
+								value="<c:out value="${boardInfo.brdtitle}"/>"></td>
+						</tr>
+
+						<tr>
+							<td>내용</td>
+							<td><textarea id="brdmemo" name="brdmemo" rows="5" cols="60"><c:out
+										value="${boardInfo.brdmemo}" /></textarea></td>
+						</tr>
+
+						<tr>
+							<td>첨부파일></td>
+							<td>
+								<c:forEach var="listview" items="${listview}" varStatus="status">
+									<input type="checkbox" name="fileno"
+										value="<c:out value="${listview.fileno}"/>">
+										
+									<a href="fileDownload?filename=<c:out value="${listview.filename}"/>
+									&downname=<c:out value="${listview.realname}"/>">
+										<c:out value="${listview.filename}" />
+									</a>
+									
+									<c:out value="${listview.size2String()}" />
+									<br>
+									
+								</c:forEach> 
+										
+									<input type="file" name="uploadfile" multiple="" >
+							</td>
+								
+						</tr>
+					</tbody>
+				</table>
+				<a href="#" class="btn" id=list>목록</a> <input type="hidden"
+					name="brdno" value="<c:out value="${boardInfo.brdno}"/>"> <a
+					href="#this" onclick="fn_formSubmit()">저장</a>
+			</form>
+			<script>
+				// 		$(function(){
+				// 			$("#list").on('click',function(){
+				// 				<a href="board1Form"></a>
+				// 			});
+				// 		});
+				$(function() {
+					$("#list").click(function() {
+						location.href = "/board/board1List";
+					});
+				});
+			</script>
+
+		</div>
 	</div>
 </body>
 </html>
