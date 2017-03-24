@@ -11,5 +11,5 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="page"   uri="http://www.opensymphony.com/sitemesh/page" %>
 
-<%-- <c:set scope="page" var="systemBaseCode"><spring:eval expression="@properties['system.base.code']" /></c:set> --%>
-<%-- <c:set scope="page" var="s3domainUrl"><spring:eval expression="@properties['s3.bucket.domain.url']" /></c:set> --%>
+<c:set scope="page" var="systemBaseCode"><spring:eval expression="@properties['system.base.code']" /></c:set>
+<c:set scope="page" var="s3domainUrl"><spring:eval expression="@properties['s3.bucket.domain.url']" /></c:set>

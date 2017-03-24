@@ -12,11 +12,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-
 <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
 <!-- Bootstrap Core CSS -->
-
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,18 +22,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
-
 <script>
 	function fn_formSubmit() {
 		document.form1.submit();
 	}
 </script>
 </head>
-
-
-
 
 <!-- <!DOCTYPE html> -->
 <!-- <html> -->
@@ -53,16 +44,10 @@
 
 			<!-- /.navbar-header -->
 
-
 			<!-- /.navbar-top-links -->
-
-			
-
-
 
 			<!-- /.navbar-static-side -->
 		</nav>
-
 
 		<div id="page-wrapper">
 
@@ -72,12 +57,10 @@
 				</div>
 				<!-- /.col-lg-12 -->
 
-
 				<div class="col-lg-6">
 					<h1 class="page-header"></h1>
 				</div>
 			</div>
-
 
 			<!-- 							<table border="1" style="width: 600px"> -->
 			<%-- 								<caption>게시판</caption> --%>
@@ -115,7 +98,6 @@
 													<!-- 				brdno 을 가져온다 1Ctr로 -->
 													<c:param name="brdno" value="${listview.brdno}" />
 												</c:url>
-
 
 
 												<!-- 												<td> -->
@@ -177,11 +159,6 @@
 										</div>
 									</form>
 
-
-
-
-
-
 								</div>
 							</div>
 						</div>
@@ -194,7 +171,6 @@
 
 	</div>
 	<!-- wrapper -->
-
 <!-- 	<!-- jQuery --> -->
 <!-- 	<script src="resources/bower_components/jquery/dist/jquery.min.js"></script> -->
 
@@ -204,6 +180,7 @@
 
 <!-- 	<!-- Metis Menu Plugin JavaScript --> -->
 <!-- 	<script -->
+
 <!-- 		src="resources/bower_components/metisMenu/dist/metisMenu.min.js"></script> -->
 
 <!-- 	<!-- Morris Charts JavaScript --> -->
@@ -213,8 +190,6 @@
 
 <!-- 	<!-- Custom Theme JavaScript --> -->
 <!-- 	<script src="resources/dist/js/sb-admin-2.js"0></script> -->
-
-
 
 
 </body>
