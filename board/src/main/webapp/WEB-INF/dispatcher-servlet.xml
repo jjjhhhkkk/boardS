@@ -19,7 +19,7 @@
 			value="org.springframework.web.servlet.view.JstlView" />
 			<property name="order" value="3" />
 		<property name="prefix">
-			<value>/WEB-INF/views/</value>
+			<value>/WEB-INF/views/jsp/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>

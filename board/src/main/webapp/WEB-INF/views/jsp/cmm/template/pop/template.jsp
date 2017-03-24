@@ -9,7 +9,7 @@
 <%-- <link href="${pageContext.request.contextPath}/resources/css/popup.css" rel="stylesheet"/> --%>
 
 <%@ include file="/WEB-INF/views/jsp/cmm/include/scripts.jsp"%>
-<%@ include file="/WEB-INF/views/jsp/cmm/include/commonScripts.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/jsp/cmm/include/commonScripts.jsp"%> --%>
 <decorator:head />
 </head>
 <body class="popup">

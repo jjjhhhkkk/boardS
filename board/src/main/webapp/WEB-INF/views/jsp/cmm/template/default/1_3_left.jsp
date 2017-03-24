@@ -19,7 +19,7 @@
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Table<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a href="/board/board1List">Table-List</a></li>
+								<li><a href="/board1List">Table-List</a></li>
 								<li><a href="board1Form">Write</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 						

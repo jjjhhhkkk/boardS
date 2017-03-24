@@ -3,6 +3,6 @@
 
 <div id="footer_area">
     <div class="footer">
-        <spring:message code="Copyright 2015 All Rights Reserved."/>
+<%--         <spring:message code="Copyright 2015 All Rights Reserved."/> --%>
     </div>
 </div>

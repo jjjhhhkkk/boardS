@@ -70,5 +70,18 @@
 			<tx:method name="*" rollback-for="Exception"/>
 		</tx:attributes>
 	</tx:advice>
+	
+	<context:property-placeholder properties-ref="properties" />
+	
+	<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="fileEncoding" value="UTF-8" />
+<!-- 		<property name="locations" > -->
+<!-- 			<list merge="true"> -->
+<!-- 				<value>classpath:properties/${spring.profiles.active}/${spring.profiles.type}.properties</value> -->
+<!-- 				<value>classpath:jsp/cmm/properties/${spring.profiles.active}/*.properties</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+	</bean>
+	
 	    
 </beans>
