@@ -10,6 +10,7 @@
 		<pattern>**/filedown/*</pattern>
 		<pattern>**/resources/*</pattern>
 		<pattern>/resources/*</pattern>
+		<pattern>/index.jsp</pattern>
 	</excludes>
 
 	<decorator name="default" page="default/template.jsp">
