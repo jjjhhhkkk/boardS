@@ -71,10 +71,11 @@
 			<!-- 										<div.0 class="panel-heading">게시판</div> -->
 			<div class="row">
 				<div class="col-lg-6">
-					<div class="panel panel-default">
+					<div class="panel panel-default ">
 						<div class="panel-heading">
-
+						panel-heading
 							<div class="panel-body">
+							panel-body
 								<div class="table-responsive">
 									<table class="table table-striped table-bordered table-hover">
 
